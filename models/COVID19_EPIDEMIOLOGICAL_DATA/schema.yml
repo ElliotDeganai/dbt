@@ -8,3 +8,18 @@ sources:
       tables:
         - name: DEMOGRAPHICS
           description: 'Ceci est un test.'
+
+models:
+  - name: w_country_code
+    description: A starter dbt model for covid data with country
+    columns:
+      - name: name
+        description: The primary key for this table
+        data_tests:
+          - not_null
+      - name: state
+        description: The primary key for this table
+        data_tests:
+          - loop_test:
+              column_name: state
+              val: CA
